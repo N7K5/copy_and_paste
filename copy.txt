@@ -1,11 +1,25 @@
-#include <stdio.h>
-
-
-int main() {
-
-    int a=2, b=2, c= 4;
-    for(; a<c; a++) {
-        printf("%d", b--);
+class Solution {
+public:
+    string convert(string s, int numRows) {
+     if (numRows ==1) {return s;}
+      int letter =0;
+      int stringNo = 0;
+      int direction = 1;
+      string rows[numRows];
+      string result ="";
+	  
+      while(letter < s.size()) // going through each letter in string
+        {
+          rows[stringNo] += s[letter]; // appending the the character in the suitable row
+          if( (stringNo ==0 && direction == -1 ) || (stringNo == numRows-1 && direction ==1) ) direction *= -1; // selecting which direction to go [up or down]  |
+          stringNo += direction; // moving to the selected direction
+          letter++;  //going to the next letter [character] of string
+        }
+      
+      for(string row : rows) // saving each row in sequnce to the result
+      {
+        result += row; 
+      }
+      return result;
     }
-    return 0;
-}
+};
