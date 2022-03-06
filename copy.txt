@@ -1,0 +1,11 @@
+#include <stdio.h>
+
+
+int main() {
+
+    int a=2, b=2, c= 4;
+    for(; a<c; a++) {
+        printf("%d", b--);
+    }
+    return 0;
+}
